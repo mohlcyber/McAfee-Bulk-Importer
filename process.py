@@ -1,4 +1,4 @@
-#written by mohlcyber 11.01.2020 v.0.1
+#written by mohlcyber 11.01.2020 v.0.2
 
 import os
 import csv
@@ -138,7 +138,7 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-	return render_template('upload.html')
+	return render_template('index.html')
 
 @app.route('/process', methods=['POST'])
 def process():
