@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>McAfee Bulk Importer</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="form">
+      
+      <ul class="tab-group">
+        <li class="tab active"><a href="#signup">Importer</a></li>
+        <li class="tab"><a href="#login">Past Results</a></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="signup">   
+          
+          <form id="upload-file" method="post" enctype="multipart/form-data">
+          
+          <div class="intro">
+            <h2>McAfee Bulk Importer</h2>
+            <p>Please upload the CSV file that includes MD5, SHA1 or SHA256 column and values.</p>
+          </div>
+            <div class="custom-file mb-3">
+              <input type="file" class="custom-file-input" id="customFile" name="file">
+              <label class="custom-file-label" style="background: transparent; color: white; font-size: 14pt" for="customFile">Choose file</label>
+              </br>
+            </div>
+            <div class="custom-control custom-switch">
+              <input class="custom-control-input" type="checkbox" id="TIE" onclick="tie_rep()">
+              <label class="custom-control-label" style="color: white; font-size: 14pt" for="TIE">Set TIE Reputation</label>
+            </div>
+            </br>
+            <div class="form-group" id="dropdown-rep-level" style="display:none" placeholder="Select TIE Reputation Level:">
+              <select class="form-control" style="background: transparent; color: white" id="dropdown-tie-rep" placeholder="Default input">
+                <option selected disabled>Select TIE Reputation Level</option>
+                <option value="1">Known Malicious</option>
+                <option value="15">Most Likely Malicious</option>
+                <option value="30">Might Be Malicious</option>
+                <option value="50">Unknown</option>
+                <option value="70">Might Be Trusted</option>
+                <option value="90">Most Likely Trusted</option>
+                <option value="100">Known Trusted</option>
+                <option value="0">Not Set</option>
+              </select>
+            </div>
+            <div class="form-group" id="dropdown-rep-prov" style="display:none">
+              <select class="form-control" style="background: transparent; color: white" id="dropdown-tie-prov">
+                <option selected disabled>Select TIE Reputation Provider:</option>
+                <option value="enterprise">Enterprise Reputation</option>
+                <option value="external">External Reputation</option>
+              </select>
+            </div>
+            <div class="custom-control custom-switch">
+              <input class="custom-control-input" type="checkbox" id="EDR">
+              <label class="custom-control-label" style="color: white; font-size: 14pt" for="EDR">EDR Lookup</label>
+            </div>
+            <div class="mt-3">
+            </br>
+              <button type="button" id="upload-file-btn" class="button button-block"/>Submit</button>
+              </br>
+
+              <div id="myModal" class="modal">
+                <div class="modal-content" style="width: 80%">
+                  <span class="close">&times;</span>
+                  <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+                  <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+                  <div id="tableResult" style="display:none; font-size: 12px">
+                  <table id="table_res" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          </form>
+
+        </div>
+        
+        <div id="login">   
+          <h1>Work in progess!</h1>
+          
+          <form action="/" method="post">
+          
+            <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email"required autocomplete="off"/>
+          </div>
+          
+          <button class="button button-block"/>Log In</button>
+
+          </form>
+
+        </div>
+        
+      </div><!-- tab-content -->
+      
+</div> <!-- /form -->
+<!-- partial -->
+
+<script>
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+
+<script>
+$(document).ready( function () {
+    $('#table_res').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+});
+</script>
+
+<script>
+function tie_rep() {
+  var checkBox = document.getElementById("TIE");
+  var level = document.getElementById("dropdown-rep-level");
+  var prov = document.getElementById("dropdown-rep-prov");
+  if (checkBox.checked == true){
+    level.style.display = "block";
+    prov.style.display = "block"
+  } else {
+     level.style.display = "none";
+     prov.style.display = "none"
+  }
+}
+</script>
+
+<script>
+$('.tab a').on('click', function (e) {
+  
+e.preventDefault();
+  
+$(this).parent().addClass('active');
+$(this).parent().siblings().removeClass('active');
+  
+target = $(this).attr('href');
+
+$('.tab-content > div').not(target).hide();
+  
+$(target).fadeIn(600);
+  
+});
+</script>
+
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("upload-file-btn");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+  $('#successAlert').hide();
+  $('#tableResult').hide();
+  $('#errorAlert').hide();
+  $('#inProgress').hide();
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
