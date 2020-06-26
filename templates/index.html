@@ -15,12 +15,12 @@
 <div class="form">
       
       <ul class="tab-group">
-        <li class="tab active"><a href="#signup">Importer</a></li>
-        <li class="tab"><a href="#login">Past Results</a></li>
+        <li class="tab active"><a href="#importer">Importer</a></li>
+        <li class="tab"><a href="#pastresults">Past Results</a></li>
       </ul>
       
       <div class="tab-content">
-        <div id="signup">   
+        <div id="importer">
           
           <form id="upload-file" method="post" enctype="multipart/form-data">
           
@@ -83,7 +83,7 @@
 
         </div>
         
-        <div id="login">   
+        <div id="pastresults">
           <h1>Work in progess!</h1>
           
           <form action="/" method="post">
@@ -167,6 +167,7 @@ span.onclick = function() {
   $('#tableResult').hide();
   $('#errorAlert').hide();
   $('#inProgress').hide();
+  location.reload();
 }
 
 window.onclick = function(event) {
