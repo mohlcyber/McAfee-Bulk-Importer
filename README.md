@@ -18,18 +18,18 @@ This is a small project to provide the ability to import multiple hashes into th
 
 Run the script ```python3.7 process.py``` and access the webpage via ```http://127.0.0.1:5000```.
 
-Screenshot
+![Screenshot 2020-08-04 at 14 58 16](https://user-images.githubusercontent.com/25227268/89296679-f42dc200-d662-11ea-9695-14c98ff7dcef.png)
 
 Now upload a csv file that includes one of the following headers: 'md5', 'sha1', 'sha256', 'hostname'.
 The app will automatically look for values in these columns. 
 
 Select TIE Reputation or EDR lookup and click submit.
 
-Screenshot
+![Screenshot 2020-08-04 at 14 59 00](https://user-images.githubusercontent.com/25227268/89296737-0d367300-d663-11ea-994e-4dd52f14d7d3.png)
 
 The app contains a quarantine option. Systems that responded to the EDR/MAR query can be selected and quarantined.
 Systems that are already quarantined can be un-quarantined. Please be careful in quarantining systems via the app because of the direct impact to the selected system.
 
-Screenshot
+![Screenshot 2020-08-04 at 15 00 30](https://user-images.githubusercontent.com/25227268/89296861-453db600-d663-11ea-9a38-5181d66dd578.png)
 
 Please provide any feedback via comments or issues in Github.
