@@ -22,7 +22,8 @@ Run the script ```python3.7 process.py``` and access the webpage via ```http://1
 
 Now upload a csv file that includes one of the following headers: 'md5', 'sha1', 'sha256', 'hostname'.
 The app will automatically look for values in these columns. An Example csv looks like this: 
- reportby,reportId,title,TLP,publishDate,emailIdentifier,fileName,fileIdentifier,md5,sha1,sha256,hostname,registry,filePath,domain,domainTimeOfLookup,port,IP,url,networkIdentifier,reliability,description,version
+
+reportby,reportId,title,TLP,publishDate,emailIdentifier,fileName,fileIdentifier,md5,sha1,sha256,hostname,registry,filePath,domain,domainTimeOfLookup,port,IP,url,networkIdentifier,reliability,description,version
 CERT,932,EXCHANGE,WHITE,20/05/2019,,,,0E1C34536BFD2905ED2451F7EC51CC53,,,,,,,,,,,,suspected,,1
 ,,,,,,,,,,,data1,,,,,,,,,,,
 CERT,932,EXCHANGE,WHITE,20/05/2019,,,,666FB7CA1C9CCC0CAB7CE8F3280FC192,,,,,,,,,,,,suspected,,1
