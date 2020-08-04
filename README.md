@@ -34,7 +34,7 @@ Select TIE Reputation or EDR lookup and click submit.
 ![Screenshot 2020-08-04 at 14 59 00](https://user-images.githubusercontent.com/25227268/89296737-0d367300-d663-11ea-994e-4dd52f14d7d3.png)
 
 The app contains a quarantine option. Systems that responded to the EDR/MAR query can be selected and quarantined.
-Systems that are already quarantined can be un-quarantined. Please be careful in quarantining systems via the app because of the direct impact to the selected system.
+Systems that are already quarantined can be un-quarantined. Please be careful in quarantining systems via the app, because of the direct impact to the selected system.
 
 ![Screenshot 2020-08-04 at 15 00 30](https://user-images.githubusercontent.com/25227268/89296861-453db600-d663-11ea-9a38-5181d66dd578.png)
 
